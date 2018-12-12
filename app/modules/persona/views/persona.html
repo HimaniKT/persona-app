@@ -1,0 +1,144 @@
+<nav class="navbar navbar-expand-md sticky-top navbar-light bg-light text-dark p-0">
+    <div>
+        <a class="navbar-brand pl-4">
+            <i class="fa fa-user-o pr-1" aria-hidden="true"></i>
+            <span class="pr-1">Persona
+				<span class="font-weight-bold">{{personaBoard.name}}</span>
+			</span>
+            <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+        </a>
+    </div>
+    <div id="navbarNavDropdown" class="navbar-collapse collapse text-center">
+        <ul class="navbar-nav mr-auto"></ul>
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <div class="nav-link">
+                    <i class="fa fa-floppy-o" aria-hidden="true"></i>
+                    <div>Save Persona</div>
+                </div>
+            </li>
+            <li class="nav-item">
+                <div class="nav-link">
+                    <i class="fa fa-plus-square" aria-hidden="true"></i>
+                    <div>Add Element</div>
+                </div>
+            </li>
+            <li class="nav-item">
+                <div class="nav-link">
+                    <i class="fa fa-share" aria-hidden="true"></i>
+                    <div>Export</div>
+                </div>
+            </li>
+            <li class="nav-item">
+                <div class="nav-link">
+                    <i class="fa fa-files-o" aria-hidden="true"></i>
+                    <div>Duplicate</div>
+                </div>
+            </li>
+            <li class="nav-item">
+                <div class="nav-link">
+                    <i class="fa fa-arrow-right" aria-hidden="true"></i>
+                    <div>Move</div>
+                </div>
+            </li>
+            <li class="nav-item">
+                <div class="nav-link">
+                    <i class="fa fa-question-circle"  aria-hidden="true"></i>
+                    <div>Help</div>
+                </div>
+            </li>
+        </ul>
+    </div>
+</nav>
+<div class="container-fluid d-flex flex-column flex-fill">
+    <div class="row flex-fill d-flex justify-content-start">
+        <div class="col-md-12 d-flex flex-column">
+            <div class="container-fluid d-flex flex-fill">
+                <div class="row flex-fill d-flex justify-content-start">
+                    <div class="col-md-1"></div>
+                    <div class="col-md-6 d-flex flex-column">
+                        <div class="container-fluid card flex-fill d-flex justify-content-start mt-5 background-color-f0f0f0">
+                            <!-- Default panel contents -->
+                            <div class="card-header row background-color-DCDCDC">
+                                <div class="col-md-1">
+                                    <div class="card w-100">
+                                        <img class="card-img-top" src="../../../images/persona-avatar.jpg">
+                                    </div>
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="card pl-3 pr-3 ml-3 width-97">
+                                        <span class="card-title-color">PERSONA NAME</span>
+                                        <input class="card-text card-body-persona" ng-model="personaBoard.name" ng-change="updatePersonaNameInitials('name');" ng-class="{'bg-danger': personaBoard.name =='','bg-white': personaBoard.name !=''}"/>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="card pl-3 pr-3 ml-3 width-92">
+                                        <span class="card-title-color">SHORT NAME</span>
+                                        <input class="card-text card-body-persona text-uppercase" ng-model="personaBoard.initials" ng-change="updatePersonaNameInitials('initials');" ng-class="{'bg-danger': personaBoard.initials =='','bg-white': personaBoard.initials !=''}" maxlength=3/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="column-container row flex-fill d-flex justify-content-start">
+                                <div droppable callback-fn="addNewCard(column)" column="column" ng-repeat="column in personaBoard.columns" data-columnindex="{{$index}}" class="col-md-{{(column.width === 'thin') ? 5 : 7}} col-sm-{{column.width == 'thin'? 5 : 7}} col-xs-{{column.width == 'thin' ? 5 : 7}}">
+                                    <div class="fields-container" ui-sortable="dragControlListeners" ng-model="column.cards">
+                                        <div class="fields list-group" ng-repeat="card in column.cards" ng-include="'modules/persona/views/card.html'"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-1"></div>
+                    <div class="col-md-4 d-flex flex-column text-muted">
+                        <div class="card flex-fill d-flex justify-content-start mt-4 background-color-f0f0f0">
+                            <div class="card-header card-header-padding">
+                                <span class="card-title">ADD ELEMENT</span>
+                                <i class="fa fa-times pull-right" aria-hidden="true"></i>
+                            </div>
+                            <div class="card-body p-0">
+                                <div class="container-fluid">
+                                    <p class="row add-ele-row">
+                                        Add element to persona
+                                    </p>
+                                    <div class="row background-color-f0f8fc">
+                                        <div class="col-md-12 p-3 row-content-font">
+                                            Click or drag & drop one of the element types below to add it to the persona.
+                                            <br>
+                                            Click on the
+                                            <span class="fa fa-trash"></span>  icon of each element to delete it. You can reorder the element the elements by dragging them.
+
+                                        </div>
+                                    </div>
+                                    <div class="row m-3">
+                                        <div class="col-md-4">
+                                            <div draggable="true" class="card add-new-card" ng-click="addNewCard()">
+                                                <div class="card-text card-body-persona add-card-text-font">ABC</div>
+                                                <span class="card-footer add-text-card-footer">SHORT TEXT</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-footer background-color-f0f0f0">
+                                <div class="card-body background-color-f0f8fc p-0 side-bar-footer">
+                                    <div class="container-fluid">
+                                        <div class="row">
+                                            <div class="col-md-1 d-flex sidebar-container">
+                                                <div class="p-0 fa fa-info-circle"></div>
+                                            </div>
+                                            <div class="col-md-11 p-2">
+                                                <div class="sidebar-footer-font">
+                                                    <p class="font-weight-bold m-0">Missing Something?</p>
+                                                    <p class="card-text">Contact us to let us know which element types you would like to use in your personas.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

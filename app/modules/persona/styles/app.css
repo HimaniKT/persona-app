@@ -1,0 +1,150 @@
+@import "../../../lib/font-awesome/css/font-awesome.css";
+@import "../../../lib/bootstrap/dist/css/bootstrap.min.css";
+
+.card-title-color{
+  color: #B1B6B6;
+
+}
+textarea:hover,
+input:hover,
+textarea:active,
+input:active,
+textarea:focus,
+input:focus,
+button:focus,
+button:active,
+button:hover,
+label:focus,
+.btn:active,
+.btn.active
+{
+  outline:0px !important;
+  -webkit-appearance:none;
+  background: none;
+}
+
+.list-group-item-action:hover,
+.list-group-item-action:focus,
+.list-group-item-action:active
+{
+  outline:0px !important;
+  -webkit-appearance:none;
+  background: white;
+}
+
+.fields-container{
+ min-height: 100%;
+ padding-bottom: 6rem;
+}
+.short-field{
+  padding: 0.30rem;
+}
+
+.alt-grid [class*="col-"] {padding-left:0;padding-right:0}
+.alt-grid .row {margin-left:0;margin-right:0}
+
+/* container adjusted */
+.alt-grid .container-fluid {width:100%;max-width:none;padding:0;}
+.mh-100vh{
+  min-height: 100vh;
+}
+.clearfix:before,
+.clearfix:after {
+  content: ".";
+  display: block;
+  height: 0;
+  overflow: hidden;
+}
+.clearfix:after { clear: both; }
+.clearfix { zoom: 1; } /* IE < 8 */
+.add-text-card-footer {
+    height: 1rem;
+    border: none;
+    background: none;
+}
+
+.add-new-card {
+    height: 7rem;
+    width: 10.2rem;
+    text-align: center;
+    color: #646E6E;
+}
+
+.add-card-text-font {
+    font-size: 3rem;
+    cursor: pointer
+}
+.field-card-handle{
+    cursor: pointer;
+}
+.fa{
+    color: #646E6E;
+}
+.card, .card-header, .card-body, .card-footer, input{
+    border: none;
+}
+.background-color-f0f0f0{
+    background-color: rgb(240, 240, 240);
+}
+.background-color-f0f8fc{
+    background-color: rgb(240,248,252);
+}
+
+.width-97 {
+    width: 97%;
+}
+
+.width-92 {
+    width: 92%;
+}
+
+.side-bar-footer {
+    border: 0.8rem solid #F0F0F0;
+    border-radius: 1rem;
+    margin-left: -1rem;
+}
+
+.sidebar-container {
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(58, 183, 247, 0.25);
+}
+
+.fa-info-circle {
+    align-items: center;
+    color: #3AB7F7;
+}
+
+.sidebar-footer-font {
+    font-style: italic;
+    font-size: 0.9em;
+}
+
+.card-header-padding {
+    padding: 0.5rem 1.1rem 1rem;
+    background-color: rgb(220,220,220);
+}
+
+.add-ele-row {
+    padding: 1.05rem;
+    font-size: 1.2em;
+}
+
+.row-content-font {
+    font-style: italic;
+    font-size: 0.9em;
+}
+
+.list-item-border {
+    border: 0.8rem solid #F0F0F0;
+    border-radius: 1rem;
+}
+
+.body-main {
+    background-color: #646E6E;
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+.background-color-DCDCDC {
+    background-color: rgb(220,220,220);
+}
